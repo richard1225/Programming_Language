@@ -1,9 +1,0 @@
-#
-count = n, {n->3} => {n->3, count->3}
-sum = 0, {n->3, count->3} => {n->3, count->3, sum->0}
-WHILE count > 0 DO sum=sum+count; count=count-1; END,
-
-在状态{n->3, count->3, sum->0}下, count > 0 成立， 执行sum=sum+count; count=count-1, 得{n->3, count->2, sum->3}
-在状态{n->3, count->2, sum->3}下, count > 0 成立， 执行sum=sum+count; count=count-1, 得{n->3, count->1, sum->5}
-在状态{n->3, count->1, sum->5}下, count > 0 成立， 执行sum=sum+count; count=count-1, 得{n->3, count->0, sum->6}
-在状态{n->3, count->0, sum->6}下, count > 0 不成立， 那么WHILE END, {n->3, count->3, sum->0} => {n->3, count->0, sum->6}
